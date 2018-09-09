@@ -8,51 +8,82 @@
 #include "Robot.h"
 
 #include <iostream>
+#include <Phoenix.h>
 #include <WPILib.h>
-#include <SmartDashboard/SmartDashboard.h>
+using namespace ctre::phoenix::motorcontrol::can;
+
+/*
+ * The typical Game Controller has the following features: 2 joysticks - left
+ * and right 4 primary or face buttons on the right hand 2 or 3 game mode
+ * buttons in the center (back, start) left and right bumper buttons left and
+ * right analog triggers Point of View (POV) rocker control or D-pad
+ */
+//test
 
 void Robot::RobotInit() {
-	m_chooser.AddDefault(kAutoNameDefault, kAutoNameDefault);
-	m_chooser.AddObject(kAutoNameCustom, kAutoNameCustom);
-	frc::SmartDashboard::PutData("Auto Modes", &m_chooser);
+	joystick = new Joystick(0); // Input 0
+	FL = new TalonSRX(0); // Talon ID[?]
+	FR = new TalonSRX(0); // Talon ID[?]
+	joyButton = new TalonSRX(0); // Talon ID[?]
+
 }
 
-/**
- * This autonomous (along with the chooser code above) shows how to select
- * between different autonomous modes using the dashboard. The sendable chooser
- * code works with the Java SmartDashboard. If you prefer the LabVIEW Dashboard,
- * remove all of the chooser code and uncomment the GetString line to get the
- * auto name from the text box below the Gyro.
- *
- * You can add additional auto modes by adding additional comparisons to the
- * if-else structure below with additional strings. If using the SendableChooser
- * make sure to add them to the chooser code above as well.
- */
-void Robot::AutonomousInit() {
-	m_autoSelected = m_chooser.GetSelected();
-	// m_autoSelected = SmartDashboard::GetString(
-	// 		"Auto Selector", kAutoNameDefault);
-	std::cout << "Auto selected: " << m_autoSelected << std::endl;
+void Robot::TeleopInit() {
+}
 
-	if (m_autoSelected == kAutoNameCustom) {
-		// Custom Auto goes here
+void Robot::TeleopPeriodic() {
+	// Get Speed and Turn
+	double left = -1 * joystick->GetRawAxis(1); // inverts left side as going forward requires a negative value on one
+												// side and positive on the other
+	double right = joystick->GetRawAxis(5);
+
+	// takes absolute value to make calculations easier.
+	if (fabs(left) > 0.1 || fabs(right) > 0.1) {
+		// sets motors to values of joysticks
+		FL->Set(ControlMode::PercentOutput, left);
+		FR->set(ControlMode::PercentOutput, left);
+		FL->set(ControlMode::PercentOutput, right);
+		FR->set(ControlMode::PercentOutput, right);
 	} else {
-		// Default Auto goes here
+		FL->set(ControlMode::PercentOutput, 0);
+		FR->set(ControlMode::PercentOutput, 0);
+
+	}
+
+	// Button
+	if (joystick.GetRawButton(1)) {				// if button [1] is pressed
+
+		joyButton.Set(ControlMode.PercentOutput, 0.3);		// forward motor
+
+	} else if (joystick.GetRawButton(2)) {			// if button [2] is pressed
+
+		joyButton->Set(ControlMode::PercentOutput, -0.3);		// reverse motor
+
+	} else {												// if not pressed
+
+		joyButton->Set(ControlMode::PercentOutput, 0.0);				// stop
+	}
+
+	// D-pad
+	if (joystick.GetPOV() == 90) {
+
+		System.out.println("POV = 90");
+
+	} else if (joystick.GetPOV() == -90) {
+
+		System.out.println("POV = -90");
+
+	} else if (joystick.GetPOV() == 180) {
+
+		System.out.println("POV = 180");
+
+	} else {
+
+		System.out.println("POV = 0");
 	}
 }
 
-void Robot::AutonomousPeriodic() {
-	if (m_autoSelected == kAutoNameCustom) {
-		// Custom Auto goes here
-	} else {
-		// Default Auto goes here
-	}
+void Robot::TestPeriodic() {
 }
-
-void Robot::TeleopInit() {}
-
-void Robot::TeleopPeriodic() {}
-
-void Robot::TestPeriodic() {}
 
 START_ROBOT_CLASS(Robot)
