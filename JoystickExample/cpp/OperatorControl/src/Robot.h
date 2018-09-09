@@ -4,11 +4,13 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
-
+//test
 #pragma once
 
 #include <string>
-
+#include <cstdlib>
+#include <Phoenix.h>
+#include <WPILib.h>
 #include <IterativeRobot.h>
 #include <SmartDashboard/SendableChooser.h>
 
@@ -22,8 +24,8 @@ public:
 	void TestPeriodic() override;
 
 private:
-	frc::SendableChooser<std::string> m_chooser;
-	const std::string kAutoNameDefault = "Default";
-	const std::string kAutoNameCustom = "My Auto";
-	std::string m_autoSelected;
+	// Declaration
+	Joystick joystick;
+	TalonSRX FL, FR;// frontLeftMotor,frontRightMotor using joysticks axis
+	TalonSRX joyButton;// if joystick button is pressed use motor
 };
