@@ -1,0 +1,37 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){//start of the main function
+
+	int x = 20;//creates a variable x with the value of 20
+	int z = 50;//creates a variable z with the value of 50
+
+	int age = 17;//creates a variable age with the value of 17
+
+
+	if(x < z){//checks to see if x is less than z
+		cout << x << " is less than " << z << endl;
+	}else{
+		cout << x << " is not less than " << z << endl;
+	}
+
+	if(age == 18){//checks to see if age equals 18
+		cout << "Noice, go buy some lottery tickets\n";
+	}else if(age <= 17){//if age does not equal 18, than this runs. Remember, once one of the if statements returns true, all the other else if and else statements are not checked nor ran.
+
+		if(age <= 12){//nested if statement to see if age is less than 12
+			cout << "wow u so young\n";
+		}else{
+			cout << "you are almost 18\n";//runs if age is greater than 12
+		}
+
+	}else{// runs if age does not equal 18 and is not less than or equal to 17
+		cout << "wow u so old\n";
+	}
+
+
+
+
+	return 0;
+}//end of main function
