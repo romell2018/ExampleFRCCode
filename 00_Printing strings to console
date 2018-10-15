@@ -1,0 +1,12 @@
+#include <iostream>//provides access to most functions.
+
+using namespace std;//all code after this has namespace std
+
+int main(){//start of main function
+
+ cout << "!!!HELLO WORLD!!!" << endl;//prints !!!HELLO WORLD!!!
+ cout << "Good game\n\n\n";//prints Good game and skips 3 lines after
+ cout << "How was your day?" << endl << endl << endl;//prints How was your day? and skips 3 lines
+
+ return 0;//returns 0 to indicate program ran sucessfully
+}//ends main function
