@@ -1,0 +1,25 @@
+#include <iostream>
+using namespace std;
+int main() {//start of main function, where your code goes
+
+
+ int input;//user input
+ int numOfAttempts = 1;//user nums of attempts
+ cout << "Enter in a number other than 5\n";
+ cin >> input;
+
+ while(input != 5 && numOfAttempts < 10){//if input is not equal 5 ANS user attempts is less than 10
+
+  cout << "Enter in another number other than 5\n";
+  cin >> input;
+  numOfAttempts = numOfAttempts + 1;//add one everytime the user enters a number
+ }
+
+ if(numOfAttempts == 10){//if the user attempts truely equals 10
+  cout << "u got dat patience, good job\n";
+ }else{
+  cout << "hey u werent supposed to enter in 5 m8\n";//the user enter in 5
+ }
+
+ return 0;
+}//ends main function, where you can not code past ( for now :) )
