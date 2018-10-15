@@ -8,9 +8,7 @@
 #include "Robot.h"
 
 #include <iostream>
-#include <Phoenix.h>
-#include <WPILib.h>
-using namespace ctre::phoenix::motorcontrol::can;
+
 
 /*
  * The typical Game Controller has the following features: 2 joysticks - left
