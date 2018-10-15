@@ -9,8 +9,9 @@
 
 #include <string>
 #include <cstdlib>
-#include <Phoenix.h>
+#include <ctre/phoenix.h>
 #include <WPILib.h>
+
 #include <IterativeRobot.h>
 #include <SmartDashboard/SendableChooser.h>
 
@@ -25,7 +26,7 @@ public:
 
 private:
 	// Declaration
-	Joystick joystick;
-	TalonSRX FL, FR;// frontLeftMotor,frontRightMotor using joysticks axis
-	TalonSRX joyButton;// if joystick button is pressed use motor
+	Joystick *joystick;
+	TalonSRX *FL, *FR;// frontLeftMotor,frontRightMotor using joysticks axis
+	TalonSRX *joyButton;// if joystick button is pressed use motor
 };
