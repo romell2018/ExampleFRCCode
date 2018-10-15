@@ -1,0 +1,21 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+	int num1;
+	int num2;
+	int product;
+
+	cout << "Please enter a whole number:\n";
+	cin >> num1;
+	cout << "Please enter another whole number:\n";
+	cin >> num2;
+
+	product = num1 * num2;
+
+	cout << num1 << " times " << num2 << " equals " << product << endl;
+
+
+	return 0;
+}
