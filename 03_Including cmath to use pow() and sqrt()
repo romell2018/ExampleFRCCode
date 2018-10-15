@@ -1,0 +1,26 @@
+#include <iostream>
+#include <cmath>//included to use pow() and sqrt()
+
+using namespace std;
+
+int main() {//start of main function
+
+	double num1;//use double for decimal numbers and answers.
+	double num2;
+	double product;//product for num1 and num2
+
+	cout << "Please enter any number:\n";
+	cin >> num1;//takes in first value
+	cout << "Please enter another number:\n";
+	cin >> num2;//takes in second value
+
+	product = num1 * sqrt(num2);//multiplies num1 by the square root of num2
+
+	cout << num1 << " times the square root of " << num2 << " equals " << product << endl;
+
+	product = pow(num1,2) * num2; // multiples num1 to the power of 2 by num2
+
+	cout << num1 << " to the power of 2 times " << num2 << " equals " << product << endl;
+
+	return 0;
+}
