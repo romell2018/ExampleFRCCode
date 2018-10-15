@@ -1,0 +1,76 @@
+#include <iostream>
+
+using namespace std;
+
+int main(){//start of the main function
+
+	int x = 20;//creates an integar variable named x with a value of 20
+	int y = 50;//creates an integar variable named y with a value of 50
+
+	x++;//adds one to x (can also be written as ++x)
+	y--;//substracts one for y (can also be written as --y)
+
+	x /= 7;//sets the new value of x to the current value of x divided by 7
+
+	//x = x / y; does the same exact thing as above.
+
+	x *= y;//sets the new value of x to the current value of x multiplied by y
+
+	//x = x * x; does the same exact thing as above.
+
+	y %= x;//sets the new value of y to x modulus the current value of y
+
+	//y = y % x; does the same exact thing as above.
+
+	x += y;//sets the new value of x to the current value of x plus y;
+
+	//x = x + y; does the same exact thing as above.
+
+	y -= x;//sets the new value of y to the current value of y subtracted by x
+
+	//x = y - x; does the same exact thing as above.
+
+	/*
+	 * Relational operators:
+	 * == equal to (side note: = and == are completely different. = is an assignment operator, assigning values to variables. == compares if two values are equal.
+	 * < less than
+	 * > greater than
+	 * <= less than or equal too
+	 * >= greater than or equal too
+	 * != does not equal
+	 */
+
+	if(x == 5){//checks if the value of x equals 5
+		cout << x << endl;//runs if the above is true
+	}
+
+	if(y < x){//checks if y is less than x
+		cout << "y is less than x\n";//runs if the above is true
+	}
+
+	if(x != 4){//checks if x does not equal 4
+		cout << "x does not equal 4 " << endl;
+	}
+
+	bool xCheck = x >= 4; //creates a boolean variable xCheck with the whether x >= 4 is true of false.
+		//booleans can check conditions just like if statements. xCheck will either have a value of true if x >= 4 is true or false if x >= 4 is not true.
+
+	if(xCheck){//if xCheck is true, this code will run. if xCheck is false, it will not run.
+		cout << "x is greater than or equal to four" << endl;
+	}
+
+	if(!xCheck){//just like != , puting an exclamation in front of a boolean variable means: if xCheck is false. so if xCheck is false, it will run. If it is true, it will not run
+		cout << xCheck << endl;
+	}
+
+
+	if(true){//example of what if statements really check. if statements see if the relation between two values is true or false, or if a boolean is true or false.
+		//i always run!
+	}
+	if(false){
+		//i never run!
+	}
+
+
+	return 0;
+}//end of main function
