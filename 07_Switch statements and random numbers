@@ -1,0 +1,39 @@
+#include <iostream>
+#include <cstdlib>//make sure to include this to use rand()
+#include <ctime>//make sure to include this to use time()
+using namespace std;
+
+int main() {
+
+	int input;//creates input variable
+	srand(time(NULL));//can be NULL or 0, both work.
+	int randomDrink = (rand()%5) + 1;//rand()%5 output numbers 0-4, and adding 1 gives numbers 1-5
+
+	cout << "What drink would you like? [1]Sprite [2]Diet Coke [3]Water [4]Hi-C [5]Dr. Pepper" << endl;
+	cin >> input;//takes in input, but we are not going to use it.
+
+	switch(randomDrink){//check for randomDrink value
+
+	case(1)://if randomDrink equals 1, run this code until break.
+		cout << "The machine malfunctioned! Here is your Sprite\n";
+		break;
+	case(2)://if randomDrink equals 2, run this code until break.
+		cout << "The machine malfunctioned! Here is your Diet Coke\n";
+		break;
+	case(3)://if randomDrink equals 3, run this code until break.
+		cout << "The machine malfunctioned! Here is your Water\n";
+		break;
+	case(4)://if randomDrink equals 4, run this code until break.
+		cout << "The machine malfunctioned! Here is your Hi-C\n";
+		break;
+	case(5)://if randomDrink equals 5, run this code until break.
+		cout << "The machine malfunctioned! Here is your Dr. Pepper\n";
+		break;
+	default://this should not run, if it does it means something went wrong in the logic.
+		cout << "error error\n";
+		break;
+	}
+
+
+	return 0;
+}
