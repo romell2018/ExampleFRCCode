@@ -1,0 +1,35 @@
+#include <iostream>
+using namespace std;
+int main() {//start of main function, where your code goes
+
+ int input;//create variable for user input
+
+ for(int numOfAttempts = 0; input != numOfAttempts - 1; numOfAttempts++){
+  //creates new variable numOfAttempts with a value of 0. It loops for as long as input does not equal (numOfAttempts - 1), then adds one to numOfAttempts for each loop.
+  //we use numOfAttempts - 1 because it adds one before it checks if the numOfAttempts equals the input, meaning when it checks input to numOfAttempts, numOfAttempts is one more than it should be.
+  //try taking out the minus 1 and see what happens.
+  cout << "Enter in a number other than " << numOfAttempts << endl; //asks user to enter a number other than numOfAttempts
+  cin >> input;//takes in input
+ }//loops above code until the condition returns false
+
+  cout << "hey u werent supposed to enter in " << input << " m8\n";//after loop, input has to equal numOfAttempts, so you don't need an if statement
+
+  int numOfAttempts = -1;//creates numOfAttempts variable to be used outside of for loop. starts at -1 so that when the loop runs it adds one to it, making it 0
+  input = 0;//resets input to 0
+
+ do{//below code always runs at least once before check for the while loop is made.
+  numOfAttempts++;//put first so that when the loop condition is checked at the bottom, it is the right number
+  cout << "Enter in a number other than " << numOfAttempts << endl;//asks user to enter a number other than numOfAttempts
+  cin >> input;//takes in input
+
+ }while(input != numOfAttempts && numOfAttempts < 10);//same check as our last while loop, but instead of adding one at the end of the loop, it adds one at the beginning for proper check
+
+ if(numOfAttempts == 10){//checks if numOfAttempts equals 10
+  cout << "wow u got that patience, u win\n";
+ }else{
+  cout << "hey u werent supposed to enter in " << input << " m8\n";
+ }
+
+ return 0;
+
+}//ends main function, where you can not code past ( for now :) )
