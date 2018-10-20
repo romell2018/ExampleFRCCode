@@ -1,0 +1,19 @@
+cpp
+#include <iostream>
+
+using namespace std;
+
+void say_hello(int loop) { //function with return type of void(no return) and one argument, loop.
+	for (int i = 0; i < loop; i++) { //prints out hello amount of times specified in the loop variable.
+		cout << "hello!\n";
+	}
+}
+int multiply(int a, int b); //prototypes a function multiply.
+int main() {
+	say_hello(20); //runs function, saying hello 20 times
+	cout << multiply(5, 4); //prints out the value of multiply with 5 and 4 as arguments, which is one number.
+	return 0;
+}
+int multiply(int a, int b) { //code for the multiply function.
+	return a * b; //the function value becomes a single value, which is the value of a times b.
+}
